@@ -44,7 +44,7 @@ export default function Home() {
                 color={"secondary"}
                 onClick={() => stopMeditation()}>Done</Button>}
 
-            <h2>{resultTime ?? ''}</h2>
+            <h2>{resultTime ? resultTime + "s" : ''}</h2>
         </main>
     </div>
   )
