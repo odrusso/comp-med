@@ -18,7 +18,7 @@ export default function Home() {
     const stopMeditation = () => {
         setMeditating(false)
         const endTime = +new Date()
-        const timeDelta = Math.round((endTime - startTime) / 100) / 10
+        const timeDelta = Math.round((endTime - startTime)) / 1000
         setResultTime(timeDelta)
         console.log("time delta", timeDelta)
         setStartTime(0)
