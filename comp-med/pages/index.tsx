@@ -1,16 +1,20 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import {Button, Typography} from "@mui/material";
+import {Button} from "@mui/material";
 import {useState} from "react";
+// @ts-ignore
+import jstat from "jstat";
 
 export default function Home() {
 
     const [meditating, setMeditating] = useState(false);
     const [startTime, setStartTime] = useState<number>(0);
     const [resultTime, setResultTime] = useState<number | null>(null);
+    const [resultPercentile, setResultPercentile] = useState<number | null>(null);
 
     const startMeditation = () => {
         setResultTime(null)
+        setResultPercentile(null)
         setMeditating(true)
         setStartTime(+new Date())
     }
@@ -20,8 +24,15 @@ export default function Home() {
         const endTime = +new Date()
         const timeDelta = Math.round((endTime - startTime)) / 1000
         setResultTime(timeDelta)
-        console.log("time delta", timeDelta)
+        setPercentile(timeDelta)
         setStartTime(0)
+    }
+
+    const setPercentile = (timeDelta: number) => {
+        const timeProbability = jstat.normal(30, 4).pdf(timeDelta);
+        const timePercentile = timeProbability * 100
+        const timePercentileRounded = Math.round(timePercentile * 1000) / 100
+        setResultPercentile(timePercentileRounded)
     }
 
   return (
@@ -44,7 +55,8 @@ export default function Home() {
                 color={"secondary"}
                 onClick={() => stopMeditation()}>Done</Button>}
 
-            <h2>{resultTime ? resultTime + "s" : ''}</h2>
+            <h2 style={{marginBottom: 0}}>{resultTime ? resultTime + "s" : ''}</h2>
+            <h3 style={{marginTop: 0}}>{resultPercentile != null ? resultPercentile + "th percentile" : ''}</h3>
         </main>
     </div>
   )
