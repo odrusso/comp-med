@@ -1,5 +1,5 @@
 .container {
-  padding: 0 2rem;
+  /*padding: 0 2rem;*/
 }
 
 .main {
@@ -108,6 +108,30 @@
   margin-left: 0.5rem;
 }
 
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  padding: 4em;
+  outline: 0;
+  background-color: ghostwhite;
+}
+
+.wave {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  z-index: -100;
+}
+
+.wave path {
+  fill: rgba(128, 128, 128, 0.2);
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;
@@ -126,4 +150,10 @@
   .logo img {
     filter: invert(1);
   }
+  .modal {
+    background-color: #343231 !important;
+  }
+  /*.wave path {*/
+  /*  fill: red !important;*/
+  /*}*/
 }
