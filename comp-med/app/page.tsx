@@ -61,16 +61,18 @@ export default function Page() {
                 {!meditating ?
                     <>
                         <Button
-                        variant={"outlined"}
-                        size={"large"}
+                        variant={"contained"}
+                        className={styles.button_begin}
+                        style={{ width: 200, height: 80 }}
                         onClick={() => startMeditation()}>Begin</Button>
                         <br />
                         <a href={"#"} onClick={() => setHelpOpen(true)} >help</a>
                     </>
                     :
                     <Button
-                        variant={"outlined"}
-                        size={"large"}
+                        variant={"contained"}
+                        className={styles.button_end}
+                        style={{ width: 200, height: 80 }}
                         color={"secondary"}
                         onClick={() => stopMeditation()}>Done</Button>}
 

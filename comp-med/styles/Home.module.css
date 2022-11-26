@@ -132,6 +132,30 @@
   fill: rgba(128, 128, 128, 0.2);
 }
 
+.button_begin {
+  background: rgb(27,67,50);
+  background: linear-gradient(0deg, rgba(36,87,65,1) 0%, rgba(45,106,79,1) 100%);
+  color: white;
+  font-weight: bolder;
+}
+
+.button_begin:hover {
+  background: rgb(28,68,51);
+  background: linear-gradient(0deg, rgba(28,68,51,1) 0%, rgba(34,79,59,1) 100%);
+}
+
+.button_end {
+  background: rgb(220,47,2);
+  background: linear-gradient(0deg, rgba(220,47,2,1) 0%, rgba(232,93,4,1) 100%);
+  color: white;
+  font-weight: bolder;
+}
+
+.button_end:hover {
+  background: rgb(220,47,2);
+  background: linear-gradient(0deg, rgba(200,43,2,1) 0%, rgba(207,82,2,1) 100%);
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;
